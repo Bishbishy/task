@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 /* use those apis to get user geolocations and nationality all apis accept get request
-https://backofficeapi.online-tkt.com/api/GetAllCountriesByLangName?LangCode=en
+https://backofficeapi.khaleejgate.com/api/GetAllCountriesByLangName?LangCode=en
 returns all countries with country codes
 *********
 https://api.ipify.org/?format=json
