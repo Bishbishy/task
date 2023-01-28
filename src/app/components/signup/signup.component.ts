@@ -19,7 +19,6 @@ export class SignupComponent {
 
 
   constructor(private fb: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
     public apisService: SignUpService) {
     this.createForm();
@@ -49,7 +48,7 @@ export class SignupComponent {
         return this.apisService.getGeoLocation(data.ip)
       })).subscribe((data) => {
         this.defaultSelect = `${data.latitude}${data.latitude}`;
-        this.fc['nationality'].setErrors(null)
+        this.signUpForm.get('nationality').setValue(this.defaultSelect)
       })
   }
 
@@ -66,9 +65,8 @@ export class SignupComponent {
 
   signUp() {
     this.submitted = true;
-    let signUpFormModel = this.signUpForm.value as SignUpFormsModule;
     if (this.signUpForm.invalid) return;
-    this.signUpForm.get('nationality').setValue(this.defaultSelect)
+    let signUpFormModel = this.signUpForm.value as SignUpFormsModule;
     sessionStorage.setItem('name', this.signUpForm.value.name)
     this.router.navigate(['welcome'])
   }
