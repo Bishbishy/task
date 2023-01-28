@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormBuilder, FormArray, FormControl } from '@ang
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { CountryModel } from 'src/app/Appservice/models/country-model';
+import { SignUpFormsModule } from 'src/app/Appservice/models/sign-up-forms-module';
 import { SignUpService } from 'src/app/Appservice/services/sign-up.service';
 import { paswordShouldMatch } from 'src/app/validators/password.validator';
 @Component({
@@ -65,7 +66,7 @@ export class SignupComponent {
 
   signUp() {
     this.submitted = true;
-    console.log("this.signUpForm", this.signUpForm.value);
+    let signUpFormModel = this.signUpForm.value as SignUpFormsModule;
     if (this.signUpForm.invalid) return;
     this.signUpForm.get('nationality').setValue(this.defaultSelect)
     sessionStorage.setItem('name', this.signUpForm.value.name)

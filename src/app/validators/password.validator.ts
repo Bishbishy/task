@@ -4,13 +4,13 @@ import {
 
 export function paswordShouldMatch(control1: string, control2: string) {
   return (control: FormGroup): {} | null => {
-    const newpassword = control.controls[control1];
-    const confirmnewpassword = control.controls[control2];
+    const password = control.controls[control1];
+    const confirmPassword = control.controls[control2];
     if (
-      newpassword.value !== confirmnewpassword.value &&
-      confirmnewpassword.valid
+      password.value !== confirmPassword.value &&
+      confirmPassword.valid
     ) {
-      confirmnewpassword.setErrors({ noMatch: true });
+      confirmPassword.setErrors({ noMatch: true });
     }
     return null;
   };

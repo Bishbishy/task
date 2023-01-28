@@ -21,7 +21,7 @@
                 <div class="form-group  mb-3">
                     <label for="nationality">Nationality</label>
                     <select formControlName="nationality" class="form-select" aria-label="Default select example">
-                        <option value="" hidden selected>{{defaultSelect}}</option>
+                        <option [ngValue]="''" hidden selected>{{defaultSelect}}</option>
                         <option *ngFor="let country  of countries" [ngValue]="country">
                             {{country.countryName}}
                         </option>
